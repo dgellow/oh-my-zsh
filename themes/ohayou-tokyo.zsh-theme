@@ -35,7 +35,17 @@ function rvm_gemset() {
     GEMSET=`rvm gemset list | grep '=>' | cut -b4-`
     if [[ -n $GEMSET ]]; then
         echo "%{$fg[yellow]%}$GEMSET%{$reset_color%}|"
-    fi 
+    fi
+}
+
+
+
+# DOCKER-MACHINE
+# Determine if we are using docker-machine.
+function docker_machine_in_use() {
+    if [[ -n $DOCKER_MACHINE_NAME ]]; then
+        echo "%{$fg[blue]%}$DOCKER_MACHINE_NAME%{$reset_color%} 🐳"
+    fi
 }
 
 
@@ -47,6 +57,9 @@ PROMPT='%{$fg[black]%}%B[%-1~]%{$fg[magenta]%}[%1d]%b %{$reset_color%}'
 
 # RIGHT PROMPT
 RPROMPT='%{$fg[magenta]%}%B$(git_prompt_info)%b%{$reset_color%}$(git_prompt_ahead)%{$reset_color%}$(git_prompt_status)%{$reset_color%} ${time}'
+
+# DOCKER-MACHINE
+RPROMPT='$(docker_machine_in_use)'$RPROMPT
 
 # RVM
 RPROMPT='%{$fg[yellow]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}'$RPROMPT
