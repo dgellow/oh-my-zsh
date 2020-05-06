@@ -22,9 +22,6 @@ PROMPT='%{$fg[black]%}%B[%-1~]%{$fg[magenta]%}[%1d]%b %{$reset_color%}'
 # RIGHT PROMPT
 RPROMPT='%{$fg[magenta]%}%B$(git_prompt_info)%b%{$reset_color%}$(git_prompt_ahead)%{$reset_color%}$(git_prompt_status)%{$reset_color%} ${time}'
 
-# DOCKER-MACHINE
-RPROMPT='$(docker_machine_in_use)'$RPROMPT
-
 # LOCAL TIME, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
 time_disabled="%{$fg[green]%}%*%{$reset_color%}"
