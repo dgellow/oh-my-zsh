@@ -1,6 +1,6 @@
 # File: ohayou-tokyo.zsh-theme
 # Creation Date: 2013
-# Author: Samuel El-Borai <samuel.elborai@gmail.com>
+# Author: Samuel El-Borai <sam@elborai.me>
 # Description: A theme for zsh
 #
 # Work based on wedisagree theme by transat https://github.com/transat
@@ -17,10 +17,10 @@
 # White: 242, 242, 242
 
 # LEFT PROMPT
-PROMPT='%{$fg[black]%}%B[%-1~]%{$fg[magenta]%}[%1d]%b %{$reset_color%}'
+PROMPT='%{$fg[black]%}%B%-1~%{$reset_color%} | %F{164}%1d%b%{$reset_color%} ▷ '
 
 # RIGHT PROMPT
-RPROMPT='%{$fg[magenta]%}%B$(git_prompt_info)%b%{$reset_color%}$(git_prompt_ahead)%{$reset_color%}$(git_prompt_status)%{$reset_color%} ${time}'
+RPROMPT='%F{243}$(pulumi_prompt_info)%{$reset_color%}%F{164}%B$(git_prompt_info)%b%{$reset_color%}$(git_prompt_ahead)%{$reset_color%}$(git_prompt_status)%{$reset_color%} ${time}'
 
 # LOCAL TIME, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
